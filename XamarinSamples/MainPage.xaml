@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinSamples"
+             xmlns:controls="clr-namespace:XamarinSamples.Views.Controls;assembly=XamarinSamples"
+             x:Class="XamarinSamples.MainPage">
+
+    <StackLayout VerticalOptions="Center">
+        <!-- Place new controls here -->
+        <Label Text="Material Entry Outlined" 
+           HorizontalOptions="Center"
+           VerticalOptions="Center" />
+        <controls:EntryOutlined 
+            Placeholder="I'm an entry"
+            BorderColor="Blue"
+            PlaceholderColor="Red"
+            TextChanged="EntryOutlined_OnTextChanged" />
+    </StackLayout>
+
+</ContentPage>

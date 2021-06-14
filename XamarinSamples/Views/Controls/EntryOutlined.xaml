@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinSamples.Views.Controls.EntryOutlined"
+             xmlns:controls="clr-namespace:XamarinSamples.Views.Controls;assembly=XamarinSamples"
+             Margin="{OnPlatform Android='3,0,3,5', iOS='3,0,3,5'}"
+             x:Name="this">
+    <ContentView.Content>
+        <StackLayout>
+            <Grid>
+                <Frame HasShadow="False"
+                       x:Name="EntryFrame"
+                       BorderColor="{Binding BorderColor, Source={x:Reference this}}"
+                       CornerRadius="{OnPlatform Android=3}"
+                       Padding="{OnPlatform Android='5,0,5,0', iOS='8,0,8,0'}"
+                       Margin="{OnPlatform Android='0,0,0,0', iOS='0,0,0,0'}" />
+
+                <Label x:Name="PlaceHolderLabel"
+                       BackgroundColor="White" HorizontalOptions="Start"
+                       TextColor="{Binding PlaceholderColor, Source={Reference this}}"
+                       Text="{Binding Placeholder,Source={x:Reference this}}"
+                       Margin="10,0,0,0"
+                       VerticalOptions="Center" />
+
+                <controls:BorderlessEntry
+                    HeightRequest="{OnPlatform iOS=40}"
+                    x:Name="TextBox" VerticalOptions="FillAndExpand"                            
+                    Text="{Binding Text,Source={x:Reference this},Mode=TwoWay}"
+                    Margin="10,0,0,0"                            
+                    Focused="TextBox_Focused"                            
+                    Unfocused="TextBox_Unfocused"
+                    TextChanged="OnTextChanged" />
+            </Grid>            
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
