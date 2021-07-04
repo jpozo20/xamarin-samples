@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:XamarinSamples.ViewModels;assembly=XamarinSamples"
+             xmlns:effects="clr-namespace:XamarinSamples.Effects;assembly=XamarinSamples"
+             x:Class="XamarinSamples.Views.TouchEffectView">
+    
+    <ContentPage.BindingContext>
+        <viewModels:TouchEffectViewModel x:Key="ViewModel" />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>        
+        <CollectionView x:Name="CollectionView"
+                        ItemsSource="{Binding Collection}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Margin="10"
+                                 effects:TouchRippleEffect.Command="{Binding BindingContext.ClickCommand, Source={x:Reference CollectionView}}"
+                                 effects:TouchRippleEffect.LongPressCommand="{Binding BindingContext.LongClickCommand, Source={x:Reference CollectionView}}">
+                        <Label HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="Center"
+                               InputTransparent="True"
+                               Text="{Binding LabelText}" FontSize="16"
+                               Margin="{x:OnPlatform Android='5,0,0,-13', iOS='0,0,0,-15'}" />
+                        <Switch InputTransparent="False"
+                                HorizontalOptions="End" VerticalOptions="Center"
+                                Margin="{x:OnPlatform Android='0,0,5,0', iOS='0,0,5,0'}" />                        
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinSamples.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 
@@ -12,7 +13,7 @@ namespace XamarinSamples
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new TouchEffectView();
         }
 
         protected override void OnStart()
